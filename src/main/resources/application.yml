@@ -19,3 +19,10 @@ spring:
             - Path=/board/**
           filters:
             - RewritePath=/board/(?<segment>.*), /$\{segment}
+            -
+        - id: Member
+          uri: lb://member
+          predicates:
+            - Path=/member/**
+          filters:
+            - RewritePath=/member/(?<segment>.*), /$\{segment}
