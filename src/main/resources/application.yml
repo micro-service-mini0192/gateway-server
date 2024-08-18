@@ -16,6 +16,4 @@ spring:
         - id: Board
           uri: lb://board
           predicates:
-            - Path=/api/v1/board/**
-          filters:
-            - RewritePath=/api/v1/board/(?<path>.*), /$\{path}
+            - Path=/board/**
