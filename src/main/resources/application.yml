@@ -13,16 +13,17 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: Board
-          uri: lb://board
+        - id: board
+          uri: lb://Board
           predicates:
             - Path=/board/**
           filters:
             - RewritePath=/board/(?<segment>.*), /$\{segment}
-            -
+
+
         - id: Member
           uri: lb://member
           predicates:
             - Path=/member/**
           filters:
-            - RewritePath=/member/(?<segment>.*), /$\{segment}
+            - RewritePath=/member/(?<path>.*), /$\{path}
