@@ -60,5 +60,5 @@ jobs:
             sudo docker pull ${{secrets.DOCKERHUB_USERNAME}}/gateway-server
             sudo docker stop gateway
             sudo docker container rm gateway
-            sudo docker run -dit --name gateway -p 8080:8080 --link eureka:eureka parkgw9071/gateway-server
+            docker run -dit -p 8080:8080 --network server --name gateway ${{ secrets.DOCKERHUB_USERNAME }}/gateway-server
             sudo docker image prune -f
