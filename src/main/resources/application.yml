@@ -18,7 +18,7 @@ spring:
           predicates:
             - Path=/board/**
           filters:
-            - RewritePath=/board/(?<segment>.*), /$\{segment}
+            - RewritePath=/board/(?<board>.*), /$\{board}
 
 
         - id: Member
@@ -26,4 +26,4 @@ spring:
           predicates:
             - Path=/member/**
           filters:
-            - RewritePath=/member/(?<path>.*), /$\{path}
+            - RewritePath=/member/(?<member>.*), /$\{member}
