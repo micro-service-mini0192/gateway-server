@@ -17,3 +17,5 @@ spring:
           uri: lb://board
           predicates:
             - Path=/board/**
+          filters:
+            - RewritePath=/board/(?<segment>.*), /$\{segment}
