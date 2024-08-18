@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+eureka.client:
+  registerWithEureka: true
+  fetchRegistry: true
+  serviceUrl:
+    defaultZone: http://eureka:8761/eureka
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: Board
+          uri: lb://board
+          predicates:
+            - Path=/api/v1/board/**
+          filters:
+            - RewritePath=/api/v1/board/(?<path>.*), /$\{path}
